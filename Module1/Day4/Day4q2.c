@@ -1,28 +1,23 @@
 #include <stdio.h>
 
-void printBits(unsigned int num) {
-    int i;
-    unsigned int mask = 1 << 31; // Start with the leftmost bit
-
-    for (i = 0; i < 32; i++) {
-        if (num & mask) {
-            printf("1");
-        } else {
-            printf("0");
-        }
-
-        mask >>= 1; // Shift the mask to the right by 1 bit
-    }
-}
-
 int main() {
-    unsigned int num;
+    int arr[] = {64, 84, 20, 36, 12, 90, 72, 10, 45, 56};
+    int len = sizeof(arr) / sizeof(arr[0]);
+    int min = arr[0];
+    int max = arr[0];
 
-    printf("Enter a 32-bit integer: ");
-    scanf("%u", &num);
+    // Finding the minimum and maximum values
+    for (int i = 1; i < len; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
 
-    printf("Bits: ");
-    printBits(num);
+    printf("Minimum: %d\n", min);
+    printf("Maximum: %d\n", max);
 
     return 0;
 }

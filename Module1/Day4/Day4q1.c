@@ -1,36 +1,21 @@
 #include <stdio.h>
 
-void printNumbers(int n) {
-    int i;
-    for (i = 1; i <= n; i++) {
-        printf("%d", i);
-    }
-    for (i = n - 1; i >= 1; i--) {
-        printf("%d", i);
-    }
-}
-
-void printSpaces(int n) {
-    int i;
-    for (i = 1; i <= n; i++) {
-        printf(" ");
-    }
-}
-
-void printPattern(int n) {
-    int i;
-    for (i = n; i >= 1; i--) {
-        printNumbers(i);
-        printSpaces(2 * (n - i));
-        printNumbers(i);
-        printf("\n");
-    }
-}
-
 int main() {
-    int n;
-    printf("Enter the number of rows: ");
-    scanf("%d", &n);
-    printPattern(n);
+    int arr[] = {12, 84, 20, 36, 64, 56, 72, 10, 45, 90};
+    int len = sizeof(arr) / sizeof(arr[0]);
+    int sum = 0;
+    double avg;
+
+    // Calculating the sum of array elements
+    for (int i = 0; i < len; i++) {
+        sum += arr[i];
+    }
+
+    // Calculating the average
+    avg = (double) sum / len;
+
+    printf("Sum: %d\n", sum);
+    printf("Average: %.1f\n", avg);
+
     return 0;
 }
